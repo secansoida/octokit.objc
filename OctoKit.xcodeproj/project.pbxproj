@@ -407,8 +407,8 @@
 		D0E3E8B418359BD000EF530F /* OCTServerMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E3E8B118359BD000EF530F /* OCTServerMetadata.m */; };
 		D0E3E8C41835A32100EF530F /* meta.json in Resources */ = {isa = PBXBuildFile; fileRef = D0E3E8C31835A32100EF530F /* meta.json */; };
 		D0E41B8716DFF37E00E321CF /* notifications.json in Resources */ = {isa = PBXBuildFile; fileRef = D0E41B8616DFF37E00E321CF /* notifications.json */; };
-		D1F9C7D01DD8C760002C2297 /* OCTUsersSearchResult.h in Headers */ = {isa = PBXBuildFile; fileRef = D1F9C7CE1DD8C760002C2297 /* OCTUsersSearchResult.h */; };
-		D1F9C7D11DD8C760002C2297 /* OCTUsersSearchResult.h in Headers */ = {isa = PBXBuildFile; fileRef = D1F9C7CE1DD8C760002C2297 /* OCTUsersSearchResult.h */; };
+		D1F9C7D01DD8C760002C2297 /* OCTUsersSearchResult.h in Headers */ = {isa = PBXBuildFile; fileRef = D1F9C7CE1DD8C760002C2297 /* OCTUsersSearchResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D1F9C7D11DD8C760002C2297 /* OCTUsersSearchResult.h in Headers */ = {isa = PBXBuildFile; fileRef = D1F9C7CE1DD8C760002C2297 /* OCTUsersSearchResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D1F9C7D21DD8C760002C2297 /* OCTUsersSearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F9C7CF1DD8C760002C2297 /* OCTUsersSearchResult.m */; };
 		D1F9C7D31DD8C760002C2297 /* OCTUsersSearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F9C7CF1DD8C760002C2297 /* OCTUsersSearchResult.m */; };
 		F01674DC18A6D09000C434AC /* OCTBranch.h in Headers */ = {isa = PBXBuildFile; fileRef = F01674DA18A6D09000C434AC /* OCTBranch.h */; settings = {ATTRIBUTES = (Public, ); }; };
