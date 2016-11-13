@@ -20,4 +20,14 @@
 ///  Returns a signal which will send the search result `OCTRepositoriesSearchResult`.
 - (RACSignal *)searchRepositoriesWithQuery:(NSString *)query orderBy:(NSString *)orderBy ascending:(BOOL)ascending;
 
+///  Search users.
+///
+///  query     - The search terms. This must not be nil.
+///  orderBy   - The sort field. Can be followers, repositories, or joined. Default:
+///              results are sorted by best match. This can be nil.
+///  ascending - The sort order, ascending or not.
+///
+///  Returns a signal which will send the search result `OCTUsersSearchResult`.
+- (RACSignal *)searchUsersWithQuery:(NSString *)query orderBy:(NSString *)orderBy ascending:(BOOL)ascending;
+
 @end
