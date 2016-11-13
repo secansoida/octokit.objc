@@ -407,6 +407,10 @@
 		D0E3E8B418359BD000EF530F /* OCTServerMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E3E8B118359BD000EF530F /* OCTServerMetadata.m */; };
 		D0E3E8C41835A32100EF530F /* meta.json in Resources */ = {isa = PBXBuildFile; fileRef = D0E3E8C31835A32100EF530F /* meta.json */; };
 		D0E41B8716DFF37E00E321CF /* notifications.json in Resources */ = {isa = PBXBuildFile; fileRef = D0E41B8616DFF37E00E321CF /* notifications.json */; };
+		D1F9C7D01DD8C760002C2297 /* OCTUsersSearchResult.h in Headers */ = {isa = PBXBuildFile; fileRef = D1F9C7CE1DD8C760002C2297 /* OCTUsersSearchResult.h */; };
+		D1F9C7D11DD8C760002C2297 /* OCTUsersSearchResult.h in Headers */ = {isa = PBXBuildFile; fileRef = D1F9C7CE1DD8C760002C2297 /* OCTUsersSearchResult.h */; };
+		D1F9C7D21DD8C760002C2297 /* OCTUsersSearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F9C7CF1DD8C760002C2297 /* OCTUsersSearchResult.m */; };
+		D1F9C7D31DD8C760002C2297 /* OCTUsersSearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F9C7CF1DD8C760002C2297 /* OCTUsersSearchResult.m */; };
 		F01674DC18A6D09000C434AC /* OCTBranch.h in Headers */ = {isa = PBXBuildFile; fileRef = F01674DA18A6D09000C434AC /* OCTBranch.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F01674DD18A6D09000C434AC /* OCTBranch.m in Sources */ = {isa = PBXBuildFile; fileRef = F01674DB18A6D09000C434AC /* OCTBranch.m */; };
 		F01674ED18A6D22A00C434AC /* OCTBranchSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F01674EC18A6D22A00C434AC /* OCTBranchSpec.m */; };
@@ -729,6 +733,8 @@
 		D0E3E8B118359BD000EF530F /* OCTServerMetadata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCTServerMetadata.m; sourceTree = "<group>"; };
 		D0E3E8C31835A32100EF530F /* meta.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = meta.json; sourceTree = "<group>"; };
 		D0E41B8616DFF37E00E321CF /* notifications.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = notifications.json; sourceTree = "<group>"; };
+		D1F9C7CE1DD8C760002C2297 /* OCTUsersSearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCTUsersSearchResult.h; sourceTree = "<group>"; };
+		D1F9C7CF1DD8C760002C2297 /* OCTUsersSearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCTUsersSearchResult.m; sourceTree = "<group>"; };
 		F01674DA18A6D09000C434AC /* OCTBranch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCTBranch.h; sourceTree = "<group>"; };
 		F01674DB18A6D09000C434AC /* OCTBranch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCTBranch.m; sourceTree = "<group>"; };
 		F01674EC18A6D22A00C434AC /* OCTBranchSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCTBranchSpec.m; sourceTree = "<group>"; };
@@ -816,6 +822,8 @@
 				240BFBCB1AFEF895006ABC05 /* OCTClient+Search.m */,
 				240BFBD01AFF1BF7006ABC05 /* OCTRepositoriesSearchResult.h */,
 				240BFBD11AFF1BF7006ABC05 /* OCTRepositoriesSearchResult.m */,
+				D1F9C7CE1DD8C760002C2297 /* OCTUsersSearchResult.h */,
+				D1F9C7CF1DD8C760002C2297 /* OCTUsersSearchResult.m */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -1381,6 +1389,7 @@
 				D0040DAD19FEC6FE002869A6 /* OCTCommitTreeEntry.h in Headers */,
 				D0040DAE19FEC6FE002869A6 /* OCTContentTreeEntry.h in Headers */,
 				2F90337E1A4CB5C2006F6667 /* OCTPublicEvent.h in Headers */,
+				D1F9C7D11DD8C760002C2297 /* OCTUsersSearchResult.h in Headers */,
 				D0040DAF19FEC6FE002869A6 /* OCTBlobTreeEntry.h in Headers */,
 				D0040DB019FEC6FE002869A6 /* OCTIssue.h in Headers */,
 				D0040DB119FEC6FE002869A6 /* OCTIssueComment.h in Headers */,
@@ -1459,6 +1468,7 @@
 				D087219F169E395F00016ACA /* OCTPushEvent.h in Headers */,
 				2F90337D1A4CB5C2006F6667 /* OCTPublicEvent.h in Headers */,
 				D08721A3169E395F00016ACA /* OCTRefEvent.h in Headers */,
+				D1F9C7D01DD8C760002C2297 /* OCTUsersSearchResult.h in Headers */,
 				D08721A7169E395F00016ACA /* OCTRepository.h in Headers */,
 				D0BC04F018403BE400EDD926 /* OCTClient+Repositories.h in Headers */,
 				D08721AB169E395F00016ACA /* OCTResponse.h in Headers */,
@@ -1740,6 +1750,7 @@
 				D0040D3119FEC692002869A6 /* OCTUser.m in Sources */,
 				2F9033801A4CB5C2006F6667 /* OCTPublicEvent.m in Sources */,
 				2F9033881A4CB727006F6667 /* OCTForkEvent.m in Sources */,
+				D1F9C7D31DD8C760002C2297 /* OCTUsersSearchResult.m in Sources */,
 				D0040D3319FEC692002869A6 /* OCTClient+Events.m in Sources */,
 				D0040D3519FEC692002869A6 /* OCTCommitCommentEvent.m in Sources */,
 				D0040D3719FEC692002869A6 /* OCTEvent.m in Sources */,
@@ -1852,6 +1863,7 @@
 				D087216F169E395F00016ACA /* OCTIssue.m in Sources */,
 				2F90337F1A4CB5C2006F6667 /* OCTPublicEvent.m in Sources */,
 				2F9033871A4CB727006F6667 /* OCTForkEvent.m in Sources */,
+				D1F9C7D21DD8C760002C2297 /* OCTUsersSearchResult.m in Sources */,
 				D0BC04A01840391600EDD926 /* OCTClient+User.m in Sources */,
 				D0872173169E395F00016ACA /* OCTIssueComment.m in Sources */,
 				D0872177169E395F00016ACA /* OCTIssueCommentEvent.m in Sources */,
