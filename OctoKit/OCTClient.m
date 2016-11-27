@@ -741,7 +741,7 @@ static NSString *OCTClientOAuthClientSecret = nil;
 }
 
 - (RACSignal *)enqueueRequestGettingNumberOfLastPage:(NSURLRequest *)request {
-	return [[self enqueueRequest:request fetchAllPages:NO]
+	return [[[self enqueueRequest:request fetchAllPages:NO]
 			reduceEach:^(NSHTTPURLResponse *response, id responseObject) {
 				return [RACSignal createSignal:^ id (id<RACSubscriber> subscriber) {
 					NSNumber *numberOfElements;
@@ -764,7 +764,8 @@ static NSString *OCTClientOAuthClientSecret = nil;
 					}
 					return nil;
 				}];
-			}];
+			}]
+			concat];
 }
 
 #pragma mark Pagination
