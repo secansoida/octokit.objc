@@ -65,6 +65,16 @@ extern NSString * const OCTClientAPIVersion;
 // signal will send it immediately, then terminate.
 - (RACSignal *)enqueueRequest:(NSURLRequest *)request resultClass:(Class)resultClass fetchAllPages:(BOOL)fetchAllPages;
 
+// Enqueues a request that will parse response header to retrive number of
+// the last page.
+//
+// request - The previously constructed URL request for the endpoint.
+//
+// Returns a signal which will send an instance of `NSNumber` for received
+// response, then complete. If an error occurs at any point, the returned
+// signal will send it immediately, then terminate.
+- (RACSignal *)enqueueRequestGettingNumberOfLastPage:(NSURLRequest *)request;
+
 // Opens the specified URL in its preferred application.
 //
 // Returns whether the URL was opened successfully.

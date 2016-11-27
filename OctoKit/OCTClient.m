@@ -740,6 +740,33 @@ static NSString *OCTClientOAuthClientSecret = nil;
 	return [self enqueueRequest:request resultClass:resultClass];
 }
 
+- (RACSignal *)enqueueRequestGettingNumberOfLastPage:(NSURLRequest *)request {
+	return [[self enqueueRequest:request fetchAllPages:NO]
+			reduceEach:^(NSHTTPURLResponse *response, id responseObject) {
+				return [RACSignal createSignal:^ id (id<RACSubscriber> subscriber) {
+					NSNumber *numberOfElements;
+					if (response) {
+						NSURL *lastPageURL = [self lastPageURLFromResponse:response];
+						NSArray<NSString *> *parameters = [lastPageURL.query componentsSeparatedByString:@"&"];
+						for (NSString *parameter in parameters) {
+							NSArray<NSString *> *keyWithValue = [parameter componentsSeparatedByString:@"="];
+							if (keyWithValue.count == 2 && [keyWithValue.firstObject isEqualToString:@"page"]) {
+								numberOfElements = @(keyWithValue[1].integerValue);
+							}
+						}
+					}
+					if (numberOfElements) {
+						[subscriber sendNext:numberOfElements];
+						[subscriber sendCompleted];
+					} else {
+						NSString *failureReason = [NSString stringWithFormat:NSLocalizedString(@"Could not retrieve last page number from response: %@", @""), response];
+						[subscriber sendError:[self parsingErrorWithFailureReason:failureReason]];
+					}
+					return nil;
+				}];
+			}];
+}
+
 #pragma mark Pagination
 
 - (NSURL *)nextPageURLFromResponse:(NSHTTPURLResponse *)response {
