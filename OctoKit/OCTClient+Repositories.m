@@ -64,6 +64,23 @@
 	return [[[self enqueueRequest:request resultClass:OCTRepository.class fetchAllPages:YES] oct_parsedResults] skip:pageOffset];
 }
 
+- (RACSignal *)fetchNumberOfStarredRepositoriesForUser:(OCTUser *)user {
+	NSParameterAssert(user != nil);
+
+	// Since there's no API for getting number of starred repositories
+	// directly we retrive number of pages from link in header to last page
+	// see -> http://stackoverflow.com/a/30638428
+	NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+
+	parameters[@"page"] = @(0);
+	parameters[@"per_page"] = @(1);
+
+	NSString *path = [NSString stringWithFormat:@"/users/%@/starred", user.login];
+	NSMutableURLRequest *request = [self requestWithMethod:@"GET" path:path parameters:parameters notMatchingEtag:nil];
+
+	return [self enqueueRequestGettingNumberOfLastPage:request];
+}
+
 - (RACSignal *)fetchRepositoriesForOrganization:(OCTOrganization *)organization {
 	NSURLRequest *request = [self requestWithMethod:@"GET" path:[NSString stringWithFormat:@"orgs/%@/repos", organization.login] parameters:nil notMatchingEtag:nil];
 	return [[self enqueueRequest:request resultClass:OCTRepository.class] oct_parsedResults];

@@ -52,6 +52,14 @@
 /// repositories will not be included.
 - (RACSignal *)fetchStarredRepositoriesForUser:(OCTUser *)user offset:(NSUInteger)offset perPage:(NSUInteger)perPage;
 
+/// Fetches number of the starred repositories for the specified `user`.
+///
+/// user    - The specified user. This must not be nil.
+///
+/// Returns a signal which sends zero or one NSNumber object. Private
+/// repositories will not be counted.
+- (RACSignal *)fetchNumberOfStarredRepositoriesForUser:(OCTUser *)user;
+
 // Fetches the specified organization's repositories.
 //
 // Returns a signal which sends zero or more OCTRepository objects. Private
