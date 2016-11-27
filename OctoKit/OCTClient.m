@@ -632,7 +632,7 @@ static NSString *OCTClientOAuthClientSecret = nil;
 			}
 
 			RACSignal *nextPageSignal = [RACSignal empty];
-			NSURL *nextPageURL = (fetchAllPages ? [self nextPageURLFromOperation:operation] : nil);
+			NSURL *nextPageURL = (fetchAllPages ? [self nextPageURLFromResponse:operation.response] : nil);
 			if (nextPageURL != nil) {
 				// If we got this far, the etag is out of date, so don't pass it on.
 				NSMutableURLRequest *nextRequest = [request mutableCopy];
@@ -742,8 +742,16 @@ static NSString *OCTClientOAuthClientSecret = nil;
 
 #pragma mark Pagination
 
-- (NSURL *)nextPageURLFromOperation:(AFHTTPRequestOperation *)operation {
-	NSDictionary *header = operation.response.allHeaderFields;
+- (NSURL *)nextPageURLFromResponse:(NSHTTPURLResponse *)response {
+	return [self URLForPageWithType:@"next" fromResponse:response];
+}
+
+- (NSURL *)lastPageURLFromResponse:(NSHTTPURLResponse *)response {
+	return [self URLForPageWithType:@"last" fromResponse:response];
+}
+
+- (NSURL *)URLForPageWithType:(NSString *)pageType fromResponse:(NSHTTPURLResponse *)response {
+	NSDictionary *header = response.allHeaderFields;
 	NSString *linksString = header[@"Link"];
 	if (linksString.length < 1) return nil;
 
@@ -766,7 +774,7 @@ static NSString *OCTClientOAuthClientSecret = nil;
 		if (result == nil) continue;
 
 		NSString *type = [link substringWithRange:[result rangeAtIndex:1]];
-		if (![type isEqualToString:@"next"]) continue;
+		if (![type isEqualToString:pageType]) continue;
 
 		return [NSURL URLWithString:URLString];
 	}
